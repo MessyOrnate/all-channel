@@ -12,6 +12,11 @@ abstract class Base
      */
     public $serviceHost = '';
 
+    public function __construct(array $config=[])
+    {
+        $this->load($config);
+    }
+
     /**
      * 加载类属性值
      * @param array $attributes
@@ -40,5 +45,20 @@ abstract class Base
             }
         }
         return $this;
+    }
+
+    protected function sign($body, $datetime)
+    {
+        $string = implode('', [
+            $this->appSecret,
+            'app_key',                  $this->appKey,
+            'formatjsonmethod',         $this->method(),
+            'sign_methodmd5timestamp',  $datetime,
+            'token',                    $this->token,
+            'v',                        '1.0',
+            $body, $this->appSecret,
+        ]);
+        $sign = strtoupper(md5($string));
+        return $sign;
     }
 }

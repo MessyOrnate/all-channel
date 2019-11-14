@@ -31,12 +31,4 @@ class StatusInfo extends Status
             return '';
         }
     }
-
-    /**
-     * 同步状态
-     */
-    public function synchronize()
-    {
-
-    }
 }

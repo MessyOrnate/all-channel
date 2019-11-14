@@ -7,8 +7,8 @@ $config = include BASE_DIR . './demo/config.php';
 
 $accessToken = new \All\Channel\Forward\AccessToken($config);
 
-$accessToken->load(['authToken' => 'xxsss']);
+$accessToken->load(['authCode' => 'xxsss']);
 
-$res = $accessToken->token();
+$res = $accessToken->get();
 
 var_dump($res);

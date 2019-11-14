@@ -12,26 +12,6 @@ abstract class BaseForward extends Base
 
     abstract function method();
 
-    public function __construct(array $config=[])
-    {
-        $this->load($config);
-    }
-
-    protected function sign($body, $datetime)
-    {
-        $string = implode('', [
-            $this->appSecret,
-            'app_key',                  $this->appKey,
-            'formatjsonmethod',         $this->method(),
-            'sign_methodmd5timestamp',  $datetime,
-            'token',                    $this->token,
-            'v',                        '1.0',
-            $body, $this->appSecret,
-        ]);
-        $sign = strtoupper(md5($string));
-        return $sign;
-    }
-
     public function request(array $data)
     {
         $body = json_encode($data);

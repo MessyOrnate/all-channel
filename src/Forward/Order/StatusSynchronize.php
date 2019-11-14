@@ -9,4 +9,11 @@ class StatusSynchronize extends Status
     {
         return 'emall.orderstatus.synchronize';
     }
+
+    public function sync($data)
+    {
+        //
+        $response = $this->request($data);
+        //
+    }
 }
