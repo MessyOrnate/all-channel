@@ -1,0 +1,22 @@
+{
+    "name": "qingliu/all-channel",
+    "description": "管家婆全渠道接口",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "清流",
+            "email": "ruoge3s@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "All\\Channel\\": "src/"
+        }
+    }
+}
